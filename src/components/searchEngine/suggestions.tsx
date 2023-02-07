@@ -27,7 +27,7 @@ export default function Suggections(props: SuggestProps) {
     console.log(e.keyCode);
   }
 
-  async function searchImages({ item }: string) {
+  async function searchImages(item: string) {
     await router.push("/result/" + item);
   }
   useEffect(() => {
@@ -52,7 +52,7 @@ export default function Suggections(props: SuggestProps) {
         ? loading
           ? "loading"
           : suggest.map((item: string, index: number) => (
-              <SuggestItem key={index} onClick={searchImages}>
+              <SuggestItem key={index} onClick={() => searchImages(item)}>
                 {item}
               </SuggestItem>
             ))

@@ -54,6 +54,7 @@ const AppName = styled.h1`
 const SearchInput = styled.input`
   padding: 0.5em;
   width: 450px;
+  font-size: 0.8rem;
   border: 2px solid black;
   border-radius: 6px;
   outline: none;

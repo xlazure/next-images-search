@@ -8,7 +8,6 @@ import {
   useRef,
   useState,
 } from "react";
-import { debounce } from "@/function/debounce";
 import useDebounce from "@/hooks/useDebounce";
 import { useRouter } from "next/router";
 interface SuggestProps {
@@ -28,6 +27,7 @@ export default function Suggections(props: SuggestProps) {
   }
 
   async function searchImages(item: string) {
+    if (item === "No suggestion") return;
     await router.push("/result/" + item);
   }
   useEffect(() => {
@@ -77,6 +77,7 @@ const SuggestContainer = styled.ul`
 
 const SuggestItem = styled.li`
   list-style-type: none;
+  font-size: 0.8rem;
 
   &:hover {
     cursor: pointer;

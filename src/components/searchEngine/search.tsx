@@ -36,15 +36,8 @@ export default function Search() {
 
 const AppName = styled.h1`
   color: #fff;
-  background: #7f7fd5; /* fallback for old browsers */
-
-  background: linear-gradient(
-    to right,
-    #91eae4,
-    #86a8e7,
-    #7f7fd5
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+  background: #7f7fd5;
+  background: linear-gradient(to right, #91eae4, #86a8e7, #7f7fd5);
   animation: gradient 3s ease infinite;
   -webkit-background-clip: text;
   color: transparent;
@@ -53,7 +46,7 @@ const AppName = styled.h1`
 
 const SearchInput = styled.input`
   padding: 0.5em;
-  width: 450px;
+  width: 100%;
   font-size: 0.8rem;
   border: 2px solid black;
   border-radius: 6px;

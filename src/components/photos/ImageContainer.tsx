@@ -78,11 +78,6 @@ export default function ImageContainer(props: ImageProps) {
 
   return (
     <Wrapper ref={warpperRef}>
-      {/* <Img
-        onClick={showFull}
-        src={urls.regular}
-        
-      /> */}
       <ImageLoader
         src={urls.regular}
         alt={alt_description}

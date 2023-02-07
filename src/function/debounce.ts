@@ -1,18 +1,18 @@
 interface DebounceProps {
-    f: () => void,
-    ms: number
+  f: () => void;
+  ms: number;
 }
 
 export function debounce({ f, ms }: DebounceProps) {
-    let timeout: any;
+  let timeout: any;
 
-    return function () {
-        if (timeout) {
-            clearTimeout(timeout);
-        }
+  return function () {
+    if (timeout) {
+      clearTimeout(timeout);
+    }
 
-        timeout = setTimeout(  () => {
-            f();
-        }, ms);
-    };
+    timeout = setTimeout(() => {
+      f();
+    }, ms);
+  };
 }

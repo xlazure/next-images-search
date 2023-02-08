@@ -1,13 +1,5 @@
 import styled from "styled-components";
-import {
-  Dispatch,
-  KeyboardEventHandler,
-  SetStateAction,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { Dispatch, useEffect, useRef, useState } from "react";
 import useDebounce from "@/hooks/useDebounce";
 import { useRouter } from "next/router";
 interface SuggestProps {
@@ -62,17 +54,22 @@ export default function Suggections(props: SuggestProps) {
 }
 
 async function getSuggest(term: string): Promise<any[]> {
-  const dictonary = await import("../../dictonary/en.json");
-  const suggest = Object.keys(dictonary).filter((key) =>
-    key.toLowerCase().includes(term.toLowerCase())
-  );
-  return suggest.slice(0, 10);
+  const EN = await import("../../dictonary/en.json");
+  const suggest = Object.keys(EN)
+    .filter((key) => key.toLowerCase().includes(term.toLowerCase()))
+    .sort(function (a, b) {
+      return a.length - b.length;
+    });
+
+  return suggest.slice(0, 30);
 }
 
 const SuggestContainer = styled.ul`
   background-color: #fff;
   border: 2px solid #000;
   border-radius: 6px;
+  max-height: 350px;
+  overflow-y: auto;
 `;
 
 const SuggestItem = styled.li`

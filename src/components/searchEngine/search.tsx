@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { ChangeEvent, KeyboardEvent, useState } from "react";
 import Suggections from "@/components/searchEngine/suggestions";
 import { useRouter } from "next/router";
-
 export default function Search() {
   const [loading, setLoading] = useState<boolean>(false);
   const router = useRouter();

@@ -22,6 +22,7 @@ export default function Search() {
       <AppName>Image Browser</AppName>
       <SearchInput
         type="text"
+        placeholder="search..."
         onChange={handleSearch}
         onKeyDown={handleControl}
       />

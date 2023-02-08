@@ -18,6 +18,7 @@ interface ModalProps {
 }
 
 export default function Index() {
+  const [loading, setLoading] = useState<boolean>(true);
   const [loadingBtn, setLoadingBtn] = useState<boolean>(true);
   const [showLoading, setShowLoading] = useState<boolean>(false);
   const [modal, setModal] = useState<ModalProps>({
@@ -42,6 +43,7 @@ export default function Index() {
       }
       setList((prevArray) => [...prevArray, ...data.results]);
       setShowLoading(false);
+      setLoading(false);
     });
   }, [result, page]);
 
@@ -169,7 +171,9 @@ export default function Index() {
       <h3>Result: {result}</h3>
 
       <Container>
-        {list.length > 0 ? (
+        {loading ? (
+          <Loader />
+        ) : list.length > 0 ? (
           list.map((item, index) => (
             <ImageContainer
               key={item.id + index}
@@ -275,6 +279,24 @@ const PosFlex = styled.div`
     &:hover {
       color: var(--main-color);
       cursor: pointer;
+    }
+  }
+`;
+
+const Loader = styled(BiLoaderAlt)`
+  animation: around 4s linear infinite;
+  font-size: 2.5rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  @keyframes around {
+    from {
+      transform: rotate(0);
+    }
+    to {
+      transform: rotate(360deg);
     }
   }
 `;
